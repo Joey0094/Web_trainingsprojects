@@ -1,0 +1,191 @@
+.main{
+    width:1200px;
+    margin:0 auto;
+}
+.fl{float:left;}
+.fr{float:right;}
+.clearFixed:after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.sprite{
+    background-image:url('../img/sprite.png');
+    background-repeat:no-repeat;
+}
+
+/*header start*/
+.header{
+    height:160px;
+    background:red;
+}
+.header .h_top{
+    height:40px;
+    background:#32373e;
+}
+.header .h_top .topCon{
+    height:40px;
+}
+.header .h_top .topCon .conLeft{
+    height:40px;
+    line-height:40px;
+}
+.header .h_top .topCon .conLeft .leftTxt{
+    height:40px;
+}
+.header .h_top .topCon .conLeft .leftTxt .logo{
+    display:block;
+    width:50px;
+    height:40px;
+    background-position:-12px -5px;
+    background-size:73px 150px;
+    margin-right:30px;
+}
+.header .h_top .topCon .conLeft .leftTxt .city{
+    font-size:12px;
+    color:#00b38a;
+    margin-right:14px;
+}
+.header .h_top .topCon .conLeft .leftTxt .city1{
+    font-size:12px;
+    color:#afb5c0;
+    margin-right:36px;
+}
+.header .h_top .topCon .conLeft .ulList{
+    font-size:14px;
+}
+.header .h_top .topCon .conLeft .ulList li{
+    float:left;
+    width:70px;
+    text-align:center;
+}
+.header .h_top .topCon .conLeft .ulList li:first-child{
+    background:#24282c;
+}
+.header .h_top .topCon .conLeft .ulList li:first-child a{
+    color:#fff;
+}
+.header .h_top .topCon .conLeft .ulList li a{
+    color:#afb5c0;
+}
+.header .h_top .topCon .conRight{
+    height:40px;
+    line-height:40px;
+}
+.header .h_top .topCon .conRight .ulList{
+    font-size:14px;
+}
+.header .h_top .topCon .conRight .ulList li{
+    float:left;
+    height:40px;
+    text-align:center;
+}
+.header .h_top .topCon .conRight .ulList li a{
+    display:block;
+    color:#afb5c0;
+}
+.header .h_top .topCon .conRight .ulList li .log{
+    padding-right:15px;
+}
+.header .h_top .topCon .conRight .ulList li .log span{
+    float:left;
+    display:block;
+    width:25px;
+    height:25px;
+    background-position:-10px -74px;
+    background-size:70px 145px;
+    margin:6px 7px 0 0;
+}
+.header .h_top .topCon .conRight .ulList li .reg{
+    height:1em;
+    line-height:1em;
+    /*如下方法不可取，可以通过添加 span 和文本竖线 | 的方法来做*/
+    border-left:1px solid #3d5366;
+    margin-top:13px;
+    padding-left:15px;
+}
+.header .h_top .topCon .conRight .ulList li .app{
+    margin-left:40px;
+    margin-right:38px;
+    padding-left:20px;
+    /*最好利用 span 来插入图片，如此可以完全调节好放图片的 block 的大小然后根据设置好的大小微调图片*/
+    background-position:-37px -34px;
+    background-size:66px 140px;
+    color:#00b38a;
+}
+.header .h_bottom{
+    height:120px;
+    background:#00b38a;
+}
+.header .h_bottom .botCon{
+    height:120px;
+}
+.header .h_bottom .botCon .conLeft{
+    position:relative;
+    width:570px;
+    height:120px;
+    background:url("../img/logo.png") 0px 0px no-repeat;
+    background-size:200px 120px;
+}
+.header .h_bottom .botCon .conLeft span{
+    display:block;
+    position:absolute;
+    width:335px;
+    height:30px;
+    left:230px;
+    top:35px;
+    background:url("../img/text.png") 0px 0px no-repeat;
+    background-size:335px 35px;
+}
+.header .h_bottom .botCon .conLeft p{
+    position:absolute;
+    left:230px;
+    top:75px;
+    font-size:14px;
+    color:#fff;
+}
+.header .h_bottom .botCon .conRight{
+    position:relative;
+    width:455px;
+    height:120px;
+}
+.header .h_bottom .botCon .conRight .inputBox{
+    position:absolute;
+    top:50%;
+    width:100%;
+    margin-top:-17.5px;
+}
+.header .h_bottom .botCon .conRight .inputBox input{
+    line-height:35px;
+    font-size:14px;
+    border:none;
+    text-indent:10px;
+}
+.header .h_bottom .botCon .conRight .inputBox .input1{
+    width:165px;
+    margin-right:25px;
+}
+.header .h_bottom .botCon .conRight .inputBox .btnTxt{
+    width:148px;
+    background:#fff;
+    font-size:14px;
+    margin-right:10px;
+}
+.header .h_bottom .botCon .conRight .inputBox .btnTxt .input2{
+    width:94px;
+}
+.header .h_bottom .botCon .conRight .inputBox .btnTxt a{
+    color:#00b38a;
+    padding:0 10px;
+    border-left:1px solid #d5dadf;
+}
+.header .h_bottom .botCon .conRight .inputBox .btnSub{
+    width:105px;
+    height:35px;
+    font-size:14px;
+    color:#ccefe7;
+    background:transparent;
+    border:1px solid #ccefe7;
+}
+
+/*search start*/

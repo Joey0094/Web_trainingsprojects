@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相册图片点击查看</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            text-decoration:none;
+            list-style:none;
+        }
+        .clearFixed:after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+
+        .header{
+            margin:20px;
+            text-align:center;
+        }
+
+        .container .imgBox{
+            width:1170px;
+            margin:0 auto;
+        }
+        .container .imgBox img{
+            float:left;
+            cursor:pointer;
+            width:345px;
+            height:215px;
+            box-shadow:3px 3px 5px #333;
+            margin-right:45px;
+            margin-bottom:45px;
+        }
+
+        .bigImg{
+            display:none;
+            position:absolute;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+        }
+        .bigImg .bgd{
+            width:100%;
+            height:100%;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .bigImg span{
+            cursor:pointer;
+            width:70px;
+            height:100px;
+            font-size:60px;
+            color:#fff;
+            line-height:100px;
+            text-align:center;
+            position:absolute;
+            top:50%;
+            margin-top:-50px;
+        }
+        .bigImg .btnL{
+            left:50%;
+            margin-left:-493px;
+        }
+        .bigImg .btnR{
+            left:50%;
+            margin-left:423px;
+        }
+        .bigImg img{
+            width:806px;
+            height:510px;
+            position:absolute;
+            top:50%;
+            margin-top:-255px;
+            left:50%;
+            margin-left:-403px;
+            box-shadow:5px 5px 10px #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header"><h1>相册</h1></div>
+    <div class="container">
+        <div class="imgBox clearFixed">
+            <img src="img/s1.jpg" alt="">
+            <img src="img/s2.jpg" alt="">
+            <img src="img/s3.jpg" alt="">
+            <img src="img/s4.jpg" alt="">
+            <img src="img/s5.jpg" alt="">
+            <img src="img/s6.jpg" alt="">
+            <img src="img/s7.jpg" alt="">
+            <img src="img/s8.jpg" alt="">
+            <img src="img/s9.jpg" alt="">
+        </div>
+    </div>
+    <div class="bigImg">
+        <div class="bgd"></div>
+        <span class="btnL"> < </span>
+        <span class="btnR"> > </span>
+        <img src="" alt="">
+    </div>
+    <script type="text/javascript">
+        window.onload = function() {
+            const bigImg = document.querySelector(".bigImg")
+            const img = document.querySelector(".bigImg img")
+            const imgArr = document.querySelectorAll(".container .imgBox img")
+            const btnL = document.querySelector(".bigImg .btnL")
+            const btnR = document.querySelector(".bigImg .btnR")
+            const bgd = document.querySelector(".bigImg .bgd")
+            let imgCount = 9;
+            let curIndex = 0;
+
+            for(let i = 0; i < imgCount; i++) {
+                imgArr[i].onclick = function() {
+                    bigImg.style.display = "block"
+                    img.setAttribute("src", "img/big" + (i + 1) + ".jpg")
+                    curIndex = i;
+                }
+            }
+
+            btnL.onclick = function() {
+                if(--curIndex < 0) curIndex = imgCount - 1
+                img.setAttribute("src", "img/big" + (curIndex + 1) + ".jpg")
+            }
+
+            btnR.onclick = function() {
+                if(++curIndex >= imgCount) curIndex = 0
+                img.setAttribute("src", "img/big" + (curIndex + 1) + ".jpg")
+            }
+
+            bgd.onclick = function() {
+                bigImg.style.display = "none"
+            }
+
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片鼠标停放区域放大</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            text-decoration:none;
+        }
+        .clearFixed:after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+
+        .mainBox{
+            height:1000px;
+            margin-top:100px;
+        }
+        .mainBox .imgBox{
+            width:1940px;
+            height:100%;
+            margin:0 auto;
+            position:relative;
+        }
+        .mainBox .imgBox>div{
+            float:left;
+            width:960px;
+            height:600px;
+            margin-top:100px;
+            margin-left:8px;
+            border:1px solid black;
+            background:url("img/1.png") no-repeat;
+        }
+        .mainBox .imgBox .sImgBox{
+            background-size:960px 600px;
+            position:relative;
+        }
+        .mainBox .imgBox .sImgBox .wrapper{
+            display:none;
+            position:absolute;
+            width:476px;
+            height:296px;
+            border:2px solid orange;
+        }
+        .mainBox .imgBox .bImgBox{
+            display:none;
+            background-position:0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainBox">
+        <div class="imgBox clearFixed">
+            <div class="sImgBox">
+                <div class="wrapper"></div>
+            </div>
+            <div class="bImgBox"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            const imgBox = document.querySelector(".mainBox .imgBox")
+            const sImgBox = document.querySelector(".mainBox .imgBox .sImgBox")
+            const wrapper = document.querySelector(".mainBox .imgBox .sImgBox .wrapper")
+            const bImgBox = document.querySelector(".mainBox .imgBox .bImgBox")
+            const scale = 2
+
+            sImgBox.onmouseover = function() {
+                wrapper.style.display = "block"
+                bImgBox.style.display = "block"
+            }
+            sImgBox.onmouseleave = function() {
+                wrapper.style.display = "none"
+                bImgBox.style.display = "none"
+            }
+            sImgBox.onmousemove = function(event) {
+                let x = event.clientX - sImgBox.offsetLeft - imgBox.offsetLeft
+                let y = event.clientY - sImgBox.offsetTop - imgBox.offsetTop
+                let left, top
+                let bLeft, bTop
+                if(x < 240) {
+                    left = 0
+                } else if(x > 720) {
+                    left = 480
+                } else {
+                    left = x - 240
+                }
+                if(y < 150) {
+                    top = 0
+                } else if(y > 450) {
+                    top = 300
+                } else {
+                    top = y - 150
+                }
+                bLeft = -left * scale + "px"
+                bTop = -top * scale + "px"
+                left = left + "px"
+                top = top + "px"
+
+                wrapper.style.left = left
+                wrapper.style.top = top
+
+                bImgBox.style.backgroundPositionX = bLeft
+                bImgBox.style.backgroundPositionY = bTop
+            }
+        }
+    </script>
+</body>
+</html>
